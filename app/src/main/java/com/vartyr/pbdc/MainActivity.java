@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.aerserv.sdk.AerServSdk;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -30,11 +31,14 @@ public class MainActivity  extends AppCompatActivity implements RewardedVideoAdL
     private RelativeLayout RL;                  // Reference to the layout so we can programtically draw
 
 
-    private String APP_ID = "ca-app-pub-2877795938017911~6340221382";                   // Using AerServ test APP ID
-    private String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";             // Using AdMob Test
-    private String INTERSTITIAL_AD_ID = "ca-app-pub-2877795938017911/9468062341";       // Using AerServ test
-    private String REWARDED_AD_ID = "ca-app-pub-2877795938017911/6257025700";           // Using AerServ test
+    private String ADMOB_APP_ID = "ca-app-pub-2877795938017911~6340221382";             // Using AerServ's IBUGz test APP ID
+    private String AERSERV_APP_ID = "380000";                                           // Using AerServ's QA test APP ID
+    private String BANNER_AD_ID = "ca-app-pub-2877795938017911/8027064147";             // Using AerServ test plugin
+    private String INTERSTITIAL_AD_ID = "ca-app-pub-2877795938017911/4914703691";       // Using AerServ test plugin
+    private String REWARDED_AD_ID = "ca-app-pub-2877795938017911/5046086045";           // Using AerServ test plugin
 
+
+    // ca-app-pub-3940256099942544/6300978111 - admob test banner
     // ca-app-pub-2877795938017911/9468062341 - test int
 // ca-app-pub-2877795938017911/6257025700 - test rewarded
 
@@ -49,7 +53,10 @@ public class MainActivity  extends AppCompatActivity implements RewardedVideoAdL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this, APP_ID);
+        MobileAds.initialize(this, ADMOB_APP_ID);                     // Init AdMob
+        AerServSdk.init(MainActivity.this, AERSERV_APP_ID);           // Init AerServ
+
+
 
         RL = (RelativeLayout) findViewById(R.id.main_background);     // Get a reference to the relative layout
 
