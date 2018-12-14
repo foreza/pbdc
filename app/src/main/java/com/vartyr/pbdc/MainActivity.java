@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.aerserv.sdk.AerServSdk;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -30,17 +31,10 @@ public class MainActivity  extends AppCompatActivity implements RewardedVideoAdL
     private RelativeLayout RL;                  // Reference to the layout so we can programtically draw
 
 
-    private String APP_ID = "ca-app-pub-2877795938017911~6340221382";                   // Using AerServ test APP ID
-    private String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";             // Using AdMob Test
-    private String INTERSTITIAL_AD_ID = "ca-app-pub-2877795938017911/9468062341";       // Using AerServ test
-    private String REWARDED_AD_ID = "ca-app-pub-2877795938017911/6257025700";           // Using AerServ test
-
-    // ca-app-pub-2877795938017911/9468062341 - test int
-// ca-app-pub-2877795938017911/6257025700 - test rewarded
-
-// ca-app-pub-2877795938017911/8027064147 - as plugin bann - com.aerserv.admob.AerServCustomEventBanner - {"placement":"1021406"} - confirmed working on as side
-// ca-app-pub-2877795938017911/4914703691 - as plugin int - com.aerserv.admob.AerServCustomEventInterstitial - {"placement":"1032534"} - confirmed working on as side
-// ca-app-pub-2877795938017911/5046086045 - as plugin rewarded - com.aerserv.admob.AerServCustomEventRewardedInterstitial  - {"placement": "1000741"} - confirmed working on as side
+    private String APP_ID = "ca-app-pub-5467746033313132~3071695138";                   // Using CC test APP ID
+    private String BANNER_AD_ID = "ca-app-pub-5467746033313132/8247522239";             // Using AdMob Test
+    private String INTERSTITIAL_AD_ID = "ca-app-pub-5467746033313132/5175854267";       // Using AerServ test
+    private String REWARDED_AD_ID = "ca-app-pub-5467746033313132/4860313397";           // Using AerServ test
 
 
 
@@ -50,10 +44,9 @@ public class MainActivity  extends AppCompatActivity implements RewardedVideoAdL
         setContentView(R.layout.activity_main);
 
         MobileAds.initialize(this, APP_ID);
+        AerServSdk.init(this,"380000");
 
         RL = (RelativeLayout) findViewById(R.id.main_background);     // Get a reference to the relative layout
-
-
 
     }
 
@@ -68,8 +61,6 @@ public class MainActivity  extends AppCompatActivity implements RewardedVideoAdL
         mAdView.loadAd(adRequest);
         Log.d("TAG", "The banner is now loading and will show...");
         RL.addView(mAdView);
-
-
 
 
     }

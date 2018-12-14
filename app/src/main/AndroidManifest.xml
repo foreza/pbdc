@@ -23,6 +23,19 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2877795938017911~6340221382"/>
 
+
+
+        <!-- AerServ Activities -->
+        <activity
+            android:name="com.aerserv.sdk.view.ASVastInterstitialActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <activity
+            android:name="com.aerserv.sdk.view.ASWebviewInterstitialActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <activity
+            android:name="com.aerserv.sdk.view.ASVpaidInterstitalActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
     </application>
 
 </manifest>
